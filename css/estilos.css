@@ -95,6 +95,19 @@
     height: 60px;
 }
 
+.tienda-icon {
+    position: fixed;
+    bottom: 210px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.tienda-icon img {
+    width: 65px;
+    height: 65px;
+    
+}
+
 .comentario-form {
     display: none;
     position: fixed;
