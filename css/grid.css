@@ -1,0 +1,40 @@
+.principal{
+    background-color: rgb(216, 252, 253);
+    padding: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.caja-2{
+    background-color: rgb(180, 179, 238);
+}
+
+.caja-3{
+    background-color: rgb(225, 238, 179);
+}
+
+.caja-4{
+    background-color: rgb(238, 179, 208);
+}
+
+.caja-5{
+    background-color: rgb(238, 196, 179);
+}
+
+.secundario {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    height: auto;
+}
+.caja-6 {
+    grid-area: 1/1/2/6; 
+}
+.caja-7 {
+    grid-area: 3/4/2/6; 
+}
+.caja-8 {
+    grid-area: 2/1/2/4; 
+}

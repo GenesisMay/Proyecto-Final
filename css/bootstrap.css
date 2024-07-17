@@ -1,0 +1,7 @@
+.navbar-custom {
+    background-color: #e1e6ff; 
+}
+.navbar-custom .navbar-brand, 
+.navbar-custom .nav-link {
+    color: rgb(5, 10, 90); 
+}
