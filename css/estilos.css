@@ -153,14 +153,17 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: box-shadow 0.3s ease;
 }
+
 .card:hover {
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
+
 .card-img {
     width: 100%;
     height: auto;
     border-radius: 10px 10px 0 0;
 }
+
 .card-overlay {
     position: absolute;
     top: 0;
@@ -175,26 +178,26 @@
     justify-content: center;
     align-items: center;
 }
+
 .card:hover .card-overlay {
     opacity: 1;
 }
+
 .card-title {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-.card-price {
-    font-size: 1.20rem;
-    color: #111214;
-    display: none;
-}
+
 .card:hover .card-price {
     display: block;
 }
+
 .contenedor {
-    max-width: 3000px; 
+    max-width: 1000px; 
     margin: 30px auto; 
 }
+
 .album-foto {
     text-align: center;
     padding: 15px;
@@ -203,12 +206,14 @@
     border-radius: 10px;
     box-shadow: 0px 0px 8px rgb(153, 188, 241);
 }
+
 .album-foto img {
     max-width: 100%;
     height: auto; 
     border-top-left-radius: 5px; 
     border-top-right-radius: 5px;
 }
+
 .album-foto p {
     margin: 10px 0 0;
     font-size: 14px;
@@ -227,6 +232,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .album-foto button:hover {
     background-color: #4ac78d;
 }
@@ -237,6 +243,7 @@
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(206, 2, 2, 0.1);
 }
+
 .custom-table th, .custom-table td {
     vertical-align: middle;
 }
