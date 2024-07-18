@@ -166,6 +166,28 @@
         <hr>
     </div>
     <hr><hr>
+    <h2>Queremos Conocerte</h2>
+    <form id="formulario" onsubmit="return validarFormulario()">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmar-password">Confirmar Contraseña:</label>
+            <input type="password" id="confirmar-password" name="confirmar-password" required>
+        </div>
+        <div id="errores" class="errores"></div>
+        <button type="submit">Registrarse</button>
+    </form>
+    <script src="js/formulario.js"></script>
     <footer class="text-center info py-3">
         <address class="d-flex flex-column align-items-center">
             <a href="https://maps.app.goo.gl/RxEoJjTFsDTCxmUdA" class="my-2">
@@ -175,7 +197,6 @@
         </address>
         <h6>Creado por Genesis Mayanza</h6>
     </footer>
-    
     <div class="coment-icon" id="toggleForm" onclick="toggleCommentForm()">
         <img src="img/icono3.png" alt="Comentario">
     </div>
