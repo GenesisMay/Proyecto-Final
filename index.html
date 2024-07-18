@@ -39,13 +39,13 @@
                         </a>
                     </li>
                     <li class="nav-item separacion">
-                        <a class="nav-link" aria-current="page" href="index.html">Página Inicio</a>
+                        <a id="inicio" class="nav-link" aria-current="page" href="index.html">Página Inicio</a>
                     </li>
                     <li class="nav-item separacion">
-                        <a class="nav-link" href="nosotros.html">Quienes Somos</a>
+                        <a id="nosotros" class="nav-link" href="nosotros.html">Quienes Somos</a>
                     </li>
                     <li class="nav-item dropdown separacion">
-                        <a class="nav-link dropdown-toggle" href="productos.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a id="productos" class="nav-link dropdown-toggle" href="productos.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Nuestros Productos
                         </a>
                         <ul class="dropdown-menu">
@@ -73,7 +73,19 @@
         <img src="img/barra1.png" alt="brochas">
     </header>
     <header class="container-fluid d-flex justify-content-center"> 
-        <p class="mb-0 p-2 fs-4 header-text">" V&nbsp;i&nbsp;v&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M&nbsp;u&nbsp;n&nbsp;d&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;o&nbsp;l&nbsp;o&nbsp;r&nbsp;e&nbsp;s"</p> 
+        <p id="texto" class="mb-0 p-2 fs-4 header-text">
+            <span>V</span><span>i</span><span>v</span><span>e</span>
+            <span>&nbsp;&nbsp;</span>
+            <span>E</span><span>n</span>
+            <span>&nbsp;&nbsp;</span>
+            <span>U</span><span>n</span>
+            <span>&nbsp;&nbsp;</span>
+            <span>M</span><span>u</span><span>n</span><span>d</span><span>o</span>
+            <span>&nbsp;&nbsp;</span>
+            <span>D</span><span>e</span>
+            <span>&nbsp;&nbsp;</span>
+            <span>C</span><span>o</span><span>l</span><span>o</span><span>r</span><span>e</span><span>s</span>
+        </p> 
     </header>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -234,6 +246,7 @@
     </form>
 </div>
 <script src="js/comentario.js"></script>
+<script src="js/eventos.js"></script>
     <div class="whatsapp-icon">
         <a href="https://wa.me/593990105300" target="_blank">
             <img src="img/icono.1.png" alt="WhatsApp">
