@@ -1,78 +1,133 @@
-const productos = {
-    Galon: [
-        { name: "Galón A", price: 10.00 },
-        { name: "Galón B", price: 12.00 }
-    ],
-    Caneca: [
-        { name: "Caneca A", price: 15.00 },
-        { name: "Caneca B", price: 18.00 }
-    ]
+let productos = [];
+
+const agregarProducto = async (id, producto, precio) => {
+  let indice = productos.findIndex(p => p.id == id);
+
+  if (indice != -1) {
+    productos[indice].cantidad++;
+    await putJSON(productos[indice]);
+  } else {
+    let nuevoProducto = {
+      id: id,
+      producto: producto,
+      precio: precio,
+      cantidad: 1
+    };
+    productos.push(nuevoProducto);
+    await postJSON(nuevoProducto);
+  }
+
+  actualizarTabla();
 };
 
-document.getElementById('Galon').addEventListener('click', () => showProductList('Galon'));
-document.getElementById('Caneca').addEventListener('click', () => showProductList('Caneca'));
+const actualizarTabla = () => {
+  let tbody = document.getElementById('tbody');
+  let total = 0;
 
-function showProductList(productType) {
-    const productListDiv = document.getElementById('product-list');
-    productListDiv.innerHTML = '';
+  tbody.innerHTML = '';
 
-    products[productType].forEach(product => {
-        const productButton = document.createElement('button');
-        productButton.className = 'btn btn-info m-2';
-        productButton.textContent = `${product.name} - $${product.price.toFixed(2)}`;
-        productButton.addEventListener('click', () => addProductToTable(product));
-        productListDiv.appendChild(productButton);
-    });
-}
+  for (let item of productos) {
+    let fila = tbody.insertRow();
 
-function addProductToTable(product) {
-    const tbody = document.getElementById('tbody');
-    const row = document.createElement('tr');
+    let celdaProducto = fila.insertCell(0);
+    let celdaCantidad = fila.insertCell(1);
+    let celdaPrecio = fila.insertCell(2);
+    let celdaTotal = fila.insertCell(3);
+    let celdaBoton = fila.insertCell(4);
 
-    const productCell = document.createElement('td');
-    productCell.textContent = product.name;
+    celdaProducto.textContent = item.producto;
+    celdaCantidad.textContent = item.cantidad;
+    celdaPrecio.textContent = item.precio;
+    celdaTotal.textContent = item.precio * item.cantidad;
 
-    const quantityCell = document.createElement('td');
-    quantityCell.innerHTML = '<input type="number" value="1" min="1" class="form-control quantity">';
+    let boton = document.createElement('button');
+    boton.textContent = 'Borrar';
+    celdaBoton.append(boton);
 
-    const priceCell = document.createElement('td');
-    priceCell.textContent = product.price.toFixed(2);
-
-    const totalCell = document.createElement('td');
-    totalCell.textContent = product.price.toFixed(2);
-    totalCell.classList.add('total');
-
-    const actionCell = document.createElement('td');
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Eliminar';
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm');
-    removeButton.addEventListener('click', () => {
-        row.remove();
-        updateTotal();
-    });
-    actionCell.appendChild(removeButton);
-
-    row.appendChild(productCell);
-    row.appendChild(quantityCell);
-    row.appendChild(priceCell);
-    row.appendChild(totalCell);
-    row.appendChild(actionCell);
-
-    tbody.appendChild(row);
-
-    quantityCell.querySelector('input').addEventListener('input', (event) => {
-        const quantity = event.target.value;
-        totalCell.textContent = (product.price * quantity).toFixed(2);
-        updateTotal();
+    boton.addEventListener("click", function () {
+      eliminar(item.id);
     });
 
-    updateTotal();
-}
+    total += item.precio * item.cantidad;
+  }
 
-function updateTotal() {
-    let total = 0;
-    document.querySelectorAll('.total').forEach(cell => {
-        total += parseFloat(cell.textContent);
+  document.getElementById('total').textContent = total.toFixed(2);
+};
+
+const eliminar = async (id) => {
+  let indice = productos.findIndex(p => p.id == id);
+
+  if (indice != -1) {
+    productos.splice(indice, 1);
+    await deleteJSON(id);
+    actualizarTabla();
+  }
+};
+
+const postJSON = async (data) => {
+  try {
+    const response = await fetch("http://localhost:3000/productos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     });
-    document.getElementById('total').textContent = total.toFixed(2);
-}
+
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+const getJSON = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/productos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const result = await response.json();
+    productos = result;
+    actualizarTabla();
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+const putJSON = async (data) => {
+  try {
+    const response = await fetch(`http://localhost:3000/productos/${data.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+const deleteJSON = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/productos/${id}`, {
+      method: "DELETE"
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+window.onload = function () {
+  getJSON();
+};
