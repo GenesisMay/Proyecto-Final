@@ -1,14 +1,10 @@
 {
   "productos": [
     {
-      "id": 11,
-      "producto": "Condor LVA Interiores y Exteriores MATE Caneca",
-      "precio": 67.4,
+      "id": 2,
+      "producto": "Condor PIN3 Látex Interiores",
+      "precio": 8.8,
       "cantidad": 1
-    },
-    {
-      "id": "558a",
-      "comentario": "yut"
     }
   ]
 }
