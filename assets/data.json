@@ -1,5 +1,10 @@
 {
   "productos": [
-    
+    {
+      "id": 2,
+      "producto": "Condor PIN3 Látex Interiores",
+      "precio": 8.8,
+      "cantidad": 1
+    }
   ]
 }
