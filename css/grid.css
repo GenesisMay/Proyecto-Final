@@ -38,3 +38,10 @@
 .caja-8 {
     grid-area: 2/1/2/4; 
 }
+
+.album {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    font-family: Arial, sans-serif;
+}
