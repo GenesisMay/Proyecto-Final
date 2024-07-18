@@ -72,28 +72,6 @@
     <header id="barra">
         <img src="img/barra1.png" alt="brochas">
     </header>
-    <section>
-        <table class="table table-striped custom-table" id="tabla">
-            <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Total</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-            <tfoot>
-                <th>TOTAL</th>
-                <th></th>
-                <th></th>
-                <td id="total">0.00</td>
-                <td></td>
-            </tfoot>
-        </table>
-    </section>
     <hr>
     <div class="contenedor">
         <h2 style="background-color: rgb(211, 255, 255); text-align: center;">Galones</h2>
@@ -200,7 +178,35 @@
         </div>
         </div>
     </div>
+    <div class="ontenedor">
+        <div class="tabla">
+            <table id="tablaProductos" class="tabla-flotante">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                        <td id="total">$0.00</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
     <script src="js/tienda.js"></script>
-
+    <div class="whatsapp2-icon">
+        <a href="https://wa.me/593990105300" target="_blank">
+            <img src="img/icono.1.png" alt="WhatsApp">
+        </a>
+    </div>
 </body>
 </html>

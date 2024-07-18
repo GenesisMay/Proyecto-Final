@@ -83,6 +83,19 @@
     
 }
 
+.whatsapp2-icon {
+    position: fixed;
+    bottom: 420px;
+    right: 5px;
+    z-index: 1000;
+}
+
+.whatsapp2-icon img {
+    width: 60px;
+    height: 60px;
+    
+}
+
 .coment-icon{
     position: fixed;
     bottom: 120px;
@@ -103,6 +116,19 @@
 }
 
 .tienda-icon img {
+    width: 65px;
+    height: 65px;
+    
+}
+
+.tienda2-icon {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.tienda2-icon img {
     width: 65px;
     height: 65px;
     
@@ -237,13 +263,61 @@
     background-color: #4ac78d;
 }
 
-.custom-table {
-    border: 1px solid #000000;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(206, 2, 2, 0.1);
+.tabla {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+    max-height: 300px; /* Altura máxima fija */
 }
 
-.custom-table th, .custom-table td {
-    vertical-align: middle;
+.tabla-flotante {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo con transparencia */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+    max-height: 50px; /* Altura máxima en función del tamaño de la pantalla */
 }
+
+.tabla-flotante thead th,
+.tabla-flotante tbody td,
+.tabla-flotante tfoot td {
+    padding: 10px;
+    text-align: center;
+}
+
+.tabla-flotante thead {
+    background-color: #d1d5ff;
+}
+
+.tabla-flotante tbody td,
+.tabla-flotante tfoot td {
+    border-top: 1px solid #9eb8ff;
+}
+
+.tabla-flotante tfoot {
+    background-color: #d0d5ff;
+}
+
+.tabla-flotante td:nth-child(3),
+.tabla-flotante td:nth-child(4) {
+    font-size: 0.9em;
+}
+
+.tabla-flotante button {
+    background-color: #d33643;
+    color: white;
+    border: currentColor;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.tabla-flotante button:hover {
+    background-color: #2530c7;
+}
+
+
+
